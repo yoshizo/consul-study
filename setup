@@ -1,0 +1,27 @@
+#!/bin/bash -e
+
+: ${CONSUL_HOME:=/home/vagrant/consul}
+: ${CONSUL_BIN_DIR:=${CONSUL_HOME}/bin}
+CONSUL_VERSION=0.6.3
+CONSUL_ZIP=/tmp/consul.zip
+
+# Setup
+mkdir -p ${CONSUL_HOME} ${CONSUL_BIN_DIR}
+
+# Download
+curl \
+	--silent \
+	--show-error \
+	--fail \
+	https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip > ${CONSUL_ZIP}
+
+# Installation
+unzip -p ${CONSUL_ZIP} > ${CONSUL_BIN_DIR}/consul
+chmod +x ${CONSUL_BIN_DIR}/consul
+
+# Test
+${CONSUL_BIN_DIR}/consul --version | grep -q ${CONSUL_VERSION}
+echo Installation Success.
+
+# Cleanup
+trap "rm ${CONSUL_ZIP}" EXIT

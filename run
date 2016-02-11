@@ -1,6 +1,7 @@
 #!/bin/bash
 
 : ${CONSUL_HOME:=/home/vagrant/consul}
+: ${CONSUL_BIN:=/home/vagrant/consul/bin/consul}
 : ${ADVETISE_IP:=$(hostname -I | cut -d' ' -f1)}
 : ${NODE_NAME:=${ADVETISE_IP}}
 : ${CONSUL_CONF_DIR:=${CONSUL_HOME}/conf}
@@ -10,7 +11,7 @@
 
 mkdir -p ${CONSUL_CONF_DIR} ${CONSUL_DATA_DIR} ${CONSUL_LOG_DIR}
 
-consul agent \
+${CONSUL_BIN} agent \
 	${SERVER_OPTION} \
 	-advertise=${ADVETISE_IP} \
 	-node=${NODE_NAME} \
