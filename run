@@ -13,6 +13,7 @@ mkdir -p ${CONSUL_CONF_DIR} ${CONSUL_DATA_DIR} ${CONSUL_LOG_DIR}
 
 ${CONSUL_BIN} agent \
 	${SERVER_OPTION} \
+	-client 0.0.0.0 \
 	-advertise=${ADVETISE_IP} \
 	-node=${NODE_NAME} \
 	-config-dir=${CONSUL_CONF_DIR} \
