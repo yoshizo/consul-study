@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export readonly SERVER_OPTION="-server -bootstrap-expect=1"
+
+./run

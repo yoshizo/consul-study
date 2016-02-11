@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CONSUL_HOME=/home/vagrant/consul
+
+docker run -it \
+	-v /usr/local/bin:/usr/local/bin \
+	-v ${CONSUL_HOME}:${CONSUL_HOME} \
+	-w ${CONSUL_HOME} \
+	 ubuntu:15.04 \
+	bash
