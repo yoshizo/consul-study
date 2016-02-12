@@ -6,17 +6,17 @@
 : ${NODE_NAME:=${ADVETISE_IP}}
 : ${CONSUL_CONF_DIR:=${CONSUL_HOME}/conf}
 : ${CONSUL_DATA_DIR:=${CONSUL_HOME}/data}
+: ${CONSUL_CONF_FILE:=${CONSUL_HOME}/client.json}
 : ${CONSUL_LOG_DIR:=${CONSUL_HOME}/log}
-: ${SERVER_OPTION:=}
 
 mkdir -p ${CONSUL_CONF_DIR} ${CONSUL_DATA_DIR} ${CONSUL_LOG_DIR}
 
 ${CONSUL_BIN} agent \
-	${SERVER_OPTION} \
 	-client 0.0.0.0 \
 	-advertise=${ADVETISE_IP} \
 	-node=${NODE_NAME} \
 	-config-dir=${CONSUL_CONF_DIR} \
+	-config-file=${CONSUL_CONF_FILE} \
 	-data-dir=${CONSUL_DATA_DIR} \
 	-bind=${ADVETISE_IP} \
 	2>&1 | tee ${CONSUL_LOG_DIR}/${NODE_NAME}.log

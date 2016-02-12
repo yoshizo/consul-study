@@ -1,5 +1,6 @@
 #!/bin/bash
 
-export readonly SERVER_OPTION="-server -bootstrap-expect=1 -ui"
+export CONSUL_HOME=/home/vagrant/consul
+export CONSUL_CONF_FILE=${CONSUL_HOME}/server.json
 
 ./run
