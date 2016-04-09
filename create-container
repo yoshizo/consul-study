@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONSUL_HOME=/home/vagrant/consul
+CONSUL_HOME=$(cd $(dirname $0) && pwd)
 
 docker run -it \
 	-v /usr/local/bin:/usr/local/bin \

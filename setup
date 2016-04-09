@@ -2,7 +2,7 @@
 
 set -e
 
-: ${CONSUL_HOME:=/home/vagrant/consul}
+: ${CONSUL_HOME=$(cd $(dirname $0) && pwd)}
 : ${CONSUL_BIN_DIR:=${CONSUL_HOME}/bin}
 
 CONSUL_VERSION=0.6.3

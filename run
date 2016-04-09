@@ -1,7 +1,9 @@
 #!/bin/bash
 
-: ${CONSUL_HOME:=/home/vagrant/consul}
-: ${CONSUL_BIN:=/home/vagrant/consul/bin/consul}
+BASE_DIR=$(cd $(dirname $0) && pwd)
+
+: ${CONSUL_HOME:=${BASE_DIR}}
+: ${CONSUL_BIN:=${BASE_DIR}/bin/consul}
 : ${ADVETISE_IP:=$(hostname -I | cut -d' ' -f1)}
 : ${NODE_NAME:=${ADVETISE_IP}}
 : ${CONSUL_CONF_DIR:=${CONSUL_HOME}/conf}
