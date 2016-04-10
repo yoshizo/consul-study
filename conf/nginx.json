@@ -1,0 +1,15 @@
+{
+  "service": {
+    "name": "nginx",
+    "tags": ["master"],
+    "address": "127.0.0.1",
+    "port": 80,
+    "enableTagOverride": false,
+    "checks": [
+      {
+        "http": "http://127.0.0.1",
+        "interval": "3s"
+      }
+    ]
+  }
+}

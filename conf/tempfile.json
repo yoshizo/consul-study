@@ -1,0 +1,12 @@
+{
+  "service": {
+    "name": "tempfile",
+    "enableTagOverride": false,
+    "checks": [
+      {
+        "script": "test -f /tmp/file",
+        "interval": "3s"
+      }
+    ]
+  }
+}

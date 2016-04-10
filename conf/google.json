@@ -1,0 +1,12 @@
+{
+  "service": {
+    "name": "google",
+    "enableTagOverride": false,
+    "checks": [
+      {
+        "script": "ping -c 1 www.google.com",
+        "interval": "10s"
+      }
+    ]
+  }
+}
